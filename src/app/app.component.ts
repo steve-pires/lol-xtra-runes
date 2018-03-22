@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'League of Legends - Xtra Runes Pages!';
+
+  public constructor() {
+    // @Inject(DOCUMENT) private _document: Document) {
+    // const bootloader = _document.getElementById('bootloader');
+    // bootloader.parentNode.removeChild(bootloader);
+  }
 }
