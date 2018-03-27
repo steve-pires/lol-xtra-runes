@@ -9,14 +9,17 @@ import { RiotApiService } from './riot-api.service';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule, MatListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
+    MatIconModule,
+    MatListModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     // keep last

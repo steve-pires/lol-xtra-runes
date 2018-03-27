@@ -14,8 +14,19 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.riotApiService.fetchReforgedRunes().then((response) => {
-        this.reforgedRunes = response;
+        this.reforgedRunes = this.rearrangeRunes(response);
+        console.debug(this.reforgedRunes);
     });
   }
 
+  private rearrangeRunes(runes) {
+    const result = [];
+    for (const rune of runes) {
+      if (!(rune.runePathName in result)) {
+        result[rune.runePathName] = [];
+      }
+      result[rune.runePathName].push(rune);
+    }
+    return result;
+  }
 }
