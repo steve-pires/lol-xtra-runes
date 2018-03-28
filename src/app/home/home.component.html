@@ -1,20 +1,24 @@
 <mat-list>
   <h3>Runes</h3>
 
-  <mat-list-item *ngFor="let rune of reforgedRunes">
-    {{rune.name}}
-  </mat-list-item>
-
-  <!--<mat-list-item *ngFor="let folder of folders">-->
-    <!--<mat-icon matListIcon>folder</mat-icon>-->
-    <!--<h4 matLine>{{folder.name}}</h4>-->
-    <!--<p matLine class="demo-2"> {{folder.updated}} </p>-->
-  <!--</mat-list-item>-->
-  <!--<mat-divider></mat-divider>-->
-  <!--<h3 matSubheader>Notes</h3>-->
-  <!--<mat-list-item *ngFor="let note of notes">-->
-    <!--<mat-icon matListIcon>note</mat-icon>-->
-    <!--<h4 matLine>{{note.name}}</h4>-->
-    <!--<p matLine class="demo-2"> {{note.updated}} </p>-->
-  <!--</mat-list-item>-->
-</mat-list>
+  <mat-expansion-panel *ngFor="let runePath of getKeys(reforgedRunes)">
+    <mat-expansion-panel-header color="primary">
+      <mat-panel-title>
+        {{runePath}}
+      </mat-panel-title>
+      <mat-panel-description>
+        ...runePath description...
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-list role="runesList">
+        <mat-list-item *ngFor="let rune of getRunes(runePath)">
+          <div matLine>
+            <div>{{rune.name}}</div>
+            <div style="font-size: .85em;">{{rune.longDesc}}</div>
+                 <!--[innerHTML]="rune.longDesc"></div>-->
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-expansion-panel>

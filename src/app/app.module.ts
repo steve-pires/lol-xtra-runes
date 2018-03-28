@@ -9,7 +9,8 @@ import { RiotApiService } from './riot-api.service';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import {MatIconModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,15 @@ import {MatIconModule, MatListModule} from '@angular/material';
     HomeComponent,
   ],
   imports: [
+    MatButtonModule,
+    MatExpansionModule,
+    MatFormFieldModule,
     MatIconModule,
     MatListModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     // keep last
+    BrowserAnimationsModule,
     BrowserModule
   ],
   providers: [

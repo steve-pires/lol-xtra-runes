@@ -4,11 +4,11 @@ import { RiotApiService } from '../riot-api.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  reforgedRunes: any[];
+  reforgedRunes: Map<string, any>;
 
   constructor(public riotApiService: RiotApiService) { }
 
@@ -19,13 +19,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public getKeys(map) {
+    if(!map) { return; }
+    let keys = Array.from(map.keys());
+    return keys;
+  }
+
+  public getRunes(runePath) {
+    return this.reforgedRunes.get(runePath).runes;
+  }
+
   private rearrangeRunes(runes) {
-    const result = [];
+    const result = new Map();
     for (const rune of runes) {
-      if (!(rune.runePathName in result)) {
-        result[rune.runePathName] = [];
+      if (!result.has(rune.runePathName)) {
+        result.set(rune.runePathName, { runes: [] });
       }
-      result[rune.runePathName].push(rune);
+      result.get(rune.runePathName).runes.push(rune);
     }
     return result;
   }
