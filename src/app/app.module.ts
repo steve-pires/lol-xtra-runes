@@ -9,7 +9,10 @@ import { RiotApiService } from './riot-api.service';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import {MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule, MatCardModule} from '@angular/material';
+import {
+  MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule, MatCardModule,
+  MatToolbar, MatToolbarModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,6 +28,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
+    MatToolbarModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     // keep last

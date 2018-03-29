@@ -1,3 +1,22 @@
 .mat-card {
     margin-bottom: 15px;
 }
+
+.runepath-panel {
+    vertical-align: top;
+    margin-bottom: 15px;
+    @media all and (min-width: 1280px){
+        margin-right: 1%;
+        width: 19%;
+        display: inline-block;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.rune-card {
+    .mat-card-content {
+        word-wrap: break-word;
+    }
+}
