@@ -9,7 +9,7 @@ import { RiotApiService } from './riot-api.service';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import {MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule, MatCardModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -20,6 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     MatButtonModule,
+    MatCardModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
