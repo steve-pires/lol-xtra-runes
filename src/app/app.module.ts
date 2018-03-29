@@ -11,9 +11,10 @@ import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatListModule, MatCardModule,
-  MatToolbar, MatToolbarModule
+  MatToolbar, MatToolbarModule, MatStepperModule, MatTooltipModule, MatSelectModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomeComponent,
   ],
   imports: [
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
+    MatSelectModule,
+    MatStepperModule,
     MatToolbarModule,
+    MatTooltipModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     // keep last

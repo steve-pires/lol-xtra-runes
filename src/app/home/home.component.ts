@@ -8,35 +8,17 @@ import { RiotApiService } from '../riot-api.service';
 })
 export class HomeComponent implements OnInit {
 
-  reforgedRunes: Map<string, any>;
+  runesPaths: any;
+  primaryRunePathId: any = '8200';
+  secondaryRunePathId: any = '8300';
 
   constructor(public riotApiService: RiotApiService) { }
 
   ngOnInit() {
-    this.riotApiService.fetchReforgedRunes().then((response) => {
-        this.reforgedRunes = this.rearrangeRunes(response);
-        console.debug(this.reforgedRunes);
+    this.riotApiService.fetchRunesPaths().then( (response) => {
+      console.debug(response);
+      this.runesPaths = response;
     });
   }
 
-  public getKeys(map) {
-    if(!map) { return; }
-    let keys = Array.from(map.keys());
-    return keys;
-  }
-
-  public getRunes(runePath) {
-    return this.reforgedRunes.get(runePath).runes;
-  }
-
-  private rearrangeRunes(runes) {
-    const result = new Map();
-    for (const rune of runes) {
-      if (!result.has(rune.runePathName)) {
-        result.set(rune.runePathName, { runes: [] });
-      }
-      result.get(rune.runePathName).runes.push(rune);
-    }
-    return result;
-  }
 }

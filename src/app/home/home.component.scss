@@ -1,15 +1,12 @@
 @import "../../styles";
 
-.mat-card {
-    margin-bottom: 15px;
-}
-
 .runepath-panel {
     .mat-expansion-panel-header-title {
         color: mat-color($accent);
+        align-items: center;
     }
     vertical-align: top;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     @media all and (min-width: 1280px){
         margin-right: 1%;
         width: 19%;
@@ -18,10 +15,22 @@
     &:last-child {
         margin-right: 0;
     }
+
+    /deep/ {
+        .mat-step-icon, .mat-step-icon-not-touched {
+            display: none;
+        }
+        .mat-horizontal-stepper-content {
+            text-align: center;
+        }
+    }
 }
 
-.rune-card {
-    .mat-card-content {
-        word-wrap: break-word;
-    }
+.rune-name-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/deep/ .mat-tooltip {
+    font-size: 1em;
 }

@@ -1,6 +1,6 @@
 const _api: any = {
     lol_static_data_v3: 'https://euw1.api.riotgames.com/lol/static-data/v3/',
-    api_key: 'RGAPI-18597450-6aa8-4054-a9e2-49d09327c5e3',
+    api_key: 'RGAPI-a20e1703-c199-4d74-99e7-cc1210c4da32',
     locale_fr: 'fr_FR'
 };
 
