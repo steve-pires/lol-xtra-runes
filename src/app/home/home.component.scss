@@ -1,8 +1,13 @@
+@import "../../styles";
+
 .mat-card {
     margin-bottom: 15px;
 }
 
 .runepath-panel {
+    .mat-expansion-panel-header-title {
+        color: mat-color($accent);
+    }
     vertical-align: top;
     margin-bottom: 15px;
     @media all and (min-width: 1280px){
