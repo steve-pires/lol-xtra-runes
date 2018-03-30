@@ -22,6 +22,8 @@
   </mat-form-field>
   -- {{secondaryRunePathId}}
 
+  <br>
+
   <mat-expansion-panel *ngFor="let runesPath of runesPaths" class="runepath-panel">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -38,7 +40,7 @@
         <mat-step *ngFor="let rune of slot.runes">
           <ng-template matStepLabel>
             <img class="rune-name-icon" [src]="'assets/runes_reforged/perk/'+rune.id+'.png'" alt="{{rune.id}}"
-                 [width]="45" [height]="45" [matTooltip]="rune.name" />
+                 [width]="i===0? 75 : 45" [height]="i===0? 75 : 45" [matTooltip]="rune.name" />
           </ng-template>
           <div>{{rune.name}}</div>
             <!--<div>{{rune.shortDesc}}</div>-->
