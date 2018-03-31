@@ -2,7 +2,7 @@
   <!--<button mat-button mat-raised-button color="accent">TEST</button>-->
   <mat-form-field floatLabel="never" class="primary-rune-selector">
     <mat-select placeholder="Branche principale" [(value)]="primaryRunePathId">
-      <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
+      <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id" [disabled]="runesPath.id === secondaryRunePathId">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
              alt="{{runesPath.id}}" class="rune-name-icon"
              width="25" height="25"><span>{{ runesPath.name }}</span>
@@ -12,7 +12,7 @@
 
   <mat-form-field floatLabel="never" class="secondary-rune-selector">
     <mat-select placeholder="Branche secondaire" [(value)]="secondaryRunePathId">
-      <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
+      <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id" [disabled]="runesPath.id === primaryRunePathId">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
              alt="{{runesPath.id}}" class="rune-name-icon"
              width="25" height="25"><span>{{ runesPath.name }}</span>
