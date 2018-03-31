@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.riotApiService.fetchRunesPaths().then( (response) => {
-      console.debug(response);
+      // console.debug(response);
       this.runesPaths = response;
     });
   }

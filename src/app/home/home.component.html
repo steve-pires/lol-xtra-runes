@@ -1,7 +1,7 @@
   <!--<button mat-button mat-raised-button color="primary">TEST</button>-->
   <!--<button mat-button mat-raised-button color="accent">TEST</button>-->
   <mat-form-field floatLabel="never">
-    <mat-select placeholder="Branche principale" [value]="primaryRunePathId">
+    <mat-select placeholder="Branche principale" [(value)]="primaryRunePathId">
       <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
              alt="{{runesPath.id}}" class="rune-name-icon"
@@ -9,10 +9,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  -- {{primaryRunePathId}}
 
   <mat-form-field floatLabel="never">
-    <mat-select placeholder="Branche secondaire" [value]="secondaryRunePathId">
+    <mat-select placeholder="Branche secondaire" [(value)]="secondaryRunePathId">
       <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
              alt="{{runesPath.id}}" class="rune-name-icon"
@@ -20,29 +19,33 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  -- {{secondaryRunePathId}}
 
-  <mat-expansion-panel *ngFor="let runesPath of runesPaths" class="runepath-panel">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'" alt="{{runesPath.id}}"
-          width="75" height="75">
-        <span>{{runesPath.name}}</span>
-      </mat-panel-title>
-      <mat-panel-description>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+  <br>
 
-    <ng-template matExpansionPanelContent>
-      <mat-horizontal-stepper [linear]="false" *ngFor="let slot of runesPath?.slots; let i=index">
-        <mat-step *ngFor="let rune of slot.runes">
-          <ng-template matStepLabel>
-            <img class="rune-name-icon" [src]="'assets/runes_reforged/perk/'+rune.id+'.png'" alt="{{rune.id}}"
-                 [width]="45" [height]="45" [matTooltip]="rune.name" />
-          </ng-template>
-          <div>{{rune.name}}</div>
-            <!--<div>{{rune.shortDesc}}</div>-->
-        </mat-step>
-      </mat-horizontal-stepper>
-    </ng-template>
-  </mat-expansion-panel>
+  <div *ngFor="let runesPath of runesPaths">
+    <mat-expansion-panel *ngIf="runesPath.id === primaryRunePathId || runesPath.id === secondaryRunePathId"
+      class="runepath-panel" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'" alt="{{runesPath.id}}"
+            width="75" height="75">
+          <span>{{runesPath.name}}</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <mat-horizontal-stepper [linear]="false" *ngFor="let slot of runesPath?.slots; let i=index">
+          <mat-step *ngFor="let rune of slot.runes">
+            <ng-template matStepLabel>
+              <img class="rune-name-icon" [src]="'assets/runes_reforged/perk/'+rune.id+'.png'" alt="{{rune.id}}"
+                  [width]="i===0? 75 : 45" [height]="i===0? 75 : 45" [matTooltip]="rune.name" />
+            </ng-template>
+            <div class="selected-rune">{{rune.name}}</div>
+              <!--<div>{{rune.shortDesc}}</div>-->
+          </mat-step>
+        </mat-horizontal-stepper>
+      </ng-template>
+    </mat-expansion-panel>
+  </div>
