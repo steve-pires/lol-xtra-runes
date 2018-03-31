@@ -31,6 +31,8 @@
     margin-right: 5px;
 }
 
-/deep/ .mat-tooltip {
-    font-size: 1em;
-}
+::ng-deep{
+    .mat-tooltip {
+        font-size: 1em;
+    }  
+} 
