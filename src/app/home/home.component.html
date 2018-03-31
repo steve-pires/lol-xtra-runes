@@ -39,7 +39,7 @@
           <mat-step *ngFor="let rune of slot.runes">
             <ng-template matStepLabel>
               <img class="rune-name-icon" [src]="'assets/runes_reforged/perk/'+rune.id+'.png'" alt="{{rune.id}}"
-                  [width]="i===0? 75 : 45" [height]="i===0? 75 : 45" [matTooltip]="rune.name" />
+                  [width]="i===0? 75 : 45" [height]="i===0? 75 : 45" [matTooltip]="rune.name" matTooltipPosition="above" />
             </ng-template>
             <div class="selected-rune">{{rune.name}}</div>
               <!--<div>{{rune.shortDesc}}</div>-->
