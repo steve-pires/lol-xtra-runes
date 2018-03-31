@@ -1,6 +1,6 @@
   <!--<button mat-button mat-raised-button color="primary">TEST</button>-->
   <!--<button mat-button mat-raised-button color="accent">TEST</button>-->
-  <mat-form-field floatLabel="never">
+  <mat-form-field floatLabel="never" class="primary-rune-selector">
     <mat-select placeholder="Branche principale" [(value)]="primaryRunePathId">
       <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
@@ -10,7 +10,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field floatLabel="never">
+  <mat-form-field floatLabel="never" class="secondary-rune-selector">
     <mat-select placeholder="Branche secondaire" [(value)]="secondaryRunePathId">
       <mat-option *ngFor="let runesPath of runesPaths" [value]="runesPath.id">
         <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'"
@@ -22,9 +22,8 @@
 
   <br>
 
-  <div *ngFor="let runesPath of runesPaths">
-    <mat-expansion-panel *ngIf="runesPath.id === primaryRunePathId || runesPath.id === secondaryRunePathId"
-      class="runepath-panel" [expanded]="true">
+  <ng-container *ngFor="let runesPath of runesPaths" class="panel-container">
+    <mat-expansion-panel *ngIf="runesPath.id === primaryRunePathId || runesPath.id === secondaryRunePathId" class="runepath-panel" [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <img [src]="'assets/runes_reforged/perkStyle/'+runesPath.id+'.png'" alt="{{runesPath.id}}"
@@ -48,4 +47,5 @@
         </mat-horizontal-stepper>
       </ng-template>
     </mat-expansion-panel>
-  </div>
+  </ng-container>
+  
