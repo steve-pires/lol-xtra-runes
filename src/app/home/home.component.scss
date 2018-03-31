@@ -1,27 +1,36 @@
 @import "../../styles";
 
 .runepath-panel {
+    ::ng-deep  {
+        .mat-expansion-panel-body {
+            padding-top: 40px;
+        }
+    }
+
     .mat-expansion-panel-header-title {
         color: mat-color($accent);
+        font-weight: bold;
+        font-size: 1.1em;
         align-items: center;
     }
     vertical-align: top;
     margin-bottom: 35px;
-    @media all and (min-width: 1280px){
-        margin-right: 1%;
-        width: 19%;
+    @media all and (min-width: 1440px){
+        margin-right: 10%;
+        width: 35%;
         display: inline-block;
     }
     &:last-child {
         margin-right: 0;
     }
 
-    /deep/ {
+    ::ng-deep {
         .mat-step-icon, .mat-step-icon-not-touched {
             display: none;
         }
         .mat-horizontal-stepper-content {
             text-align: center;
+            color: mat-color($accent);
         }
     }
 }
