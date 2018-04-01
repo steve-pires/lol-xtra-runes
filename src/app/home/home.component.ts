@@ -9,8 +9,11 @@ import { RiotApiService } from '../riot-api.service';
 export class HomeComponent implements OnInit {
 
   runesPaths: any;
-  primaryRunePathId: any = '8200';
-  secondaryRunePathId: any = '8300';
+  primaryRunePath: any = '';
+  secondaryRunePath: any = '';
+
+  oldPrimaryRunePath: any  = '';
+  oldSecondaryRunePath: any  = '';
 
   constructor(public riotApiService: RiotApiService) { }
 
@@ -21,4 +24,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onChangePrimaryRunePath() {
+    if (this.primaryRunePath === this.secondaryRunePath) {
+      this.secondaryRunePath = this.oldPrimaryRunePath;
+    }
+    this.oldPrimaryRunePath = this.primaryRunePath;
+  }
+
+  onChangeSecondaryRunePath() {
+    if (this.secondaryRunePath === this.primaryRunePath) {
+      this.primaryRunePath = this.oldSecondaryRunePath;
+    }
+    this.oldSecondaryRunePath = this.secondaryRunePath;
+  }
 }
